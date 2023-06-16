@@ -1,0 +1,1 @@
+Wordpress plugin to help organising data fetching in a headless Nanosite. 
