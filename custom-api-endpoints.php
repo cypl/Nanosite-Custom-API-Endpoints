@@ -10,6 +10,7 @@ Version: 1.0
 require_once plugin_dir_path(__FILE__) . 'endpoints/pages-routes.php';
 require_once plugin_dir_path(__FILE__) . 'endpoints/posts-routes.php';
 require_once plugin_dir_path(__FILE__) . 'endpoints/bateaux-routes.php'; // = Custom Post Type
+require_once plugin_dir_path(__FILE__) . 'endpoints/menus.php'; // = Custom Post Type
 
 // Register custom API endpoints
 function custom_api_endpoints_init() {
@@ -24,6 +25,10 @@ function custom_api_endpoints_init() {
 	register_rest_route('custom-api/v1', '/bateaux-routes', array(
         'methods' => 'GET',
         'callback' => 'get_bateaux_routes',
+    ));
+    register_rest_route('custom-api/v1', '/menus', array(
+        'methods' => 'GET',
+        'callback' => 'get_menus_data',
     ));
 }
 add_action('rest_api_init', 'custom_api_endpoints_init');
