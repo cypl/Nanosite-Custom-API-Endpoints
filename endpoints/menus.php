@@ -86,6 +86,8 @@ function get_menus_data() {
 // Fonction récursive pour récupérer les éléments enfants d'un item de menu
 function get_menu_item_children( $parent_id, $all_menu_items ) {
     $menu_items = array();
+    
+    $home_url = home_url(); // Obtenir l'URL de la page d'accueil
 
     foreach ( $all_menu_items as $item ) {
         if ( $item->menu_item_parent == $parent_id ) {
