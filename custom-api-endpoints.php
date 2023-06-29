@@ -12,6 +12,7 @@ require_once plugin_dir_path(__FILE__) . 'endpoints/posts-routes.php';
 require_once plugin_dir_path(__FILE__) . 'endpoints/bateaux-routes.php'; // = Custom Post Type
 require_once plugin_dir_path(__FILE__) . 'endpoints/menus.php'; 
 require_once plugin_dir_path(__FILE__) . 'endpoints/site-infos.php';
+require_once plugin_dir_path(__FILE__) . 'endpoints/acf-options.php';
 
 // Register custom API endpoints
 function custom_api_endpoints_init() {
@@ -35,5 +36,9 @@ function custom_api_endpoints_init() {
         'methods' => 'GET',
         'callback' => 'get_site_infos',
     ));
+    register_rest_route("custom-api/v1", "/options/all", [
+        "methods" => "GET",
+        "callback" => "acf_options_route",
+    ]);
 }
 add_action('rest_api_init', 'custom_api_endpoints_init');
